@@ -1,6 +1,6 @@
 import React from "react";
 import './table.css'
-import { prettyPrintStat } from "./util";
+import { prettyPrintStat } from "../../util/util";
 
 const Table = ({ countries }) => {
   

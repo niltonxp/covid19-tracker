@@ -6,11 +6,11 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
-import { sortData, prettyPrintStat } from "./util";
-import InfoBox from "./infoBox";
-import Map from "./map";
-import Table from "./table";
-import LineGraph from "./lineGraph";
+import { sortData, prettyPrintStat } from "./util/util";
+import InfoBox from "./components/infoBox/infoBox";
+import Map from "./components/map/map";
+import Table from "./components/table/table";
+import LineGraph from "./components/lineGraph/lineGraph";
 import "leaflet/dist/leaflet.css";
 import "./App.css";
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
-import { prettyPrintStat } from "./util";
+import { prettyPrintStat } from "../../util/util";
 
 const options = {
   legend: {
@@ -18,7 +18,7 @@ const options = {
     intersect: false,
     callbacks: {
       label: function (tootipItem, data) {
-        return prettyPrintStat(tootipItem.value);
+        return tootipItem.value;
       },
     },
   },
@@ -55,7 +55,7 @@ const buildChartData = (data, casesType) => {
     if (lastDataPoint) {
       const newDataPoint = {
         x: date,
-        y: data[casesType][date] - lastDataPoint,
+        y: prettyPrintStat(data[casesType][date] - lastDataPoint),
       };
 
       chartData.push(newDataPoint);
