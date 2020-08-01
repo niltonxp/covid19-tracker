@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import numeral from "numeral";
 import { prettyPrintStat } from "../../util/util";
 
 const options = {
@@ -39,7 +38,7 @@ const options = {
         },
         ticks: {
           callback: function (value, index, values) {
-            return numeral(value).format("0a");
+            return `${value}k`;
           },
         },
       },
