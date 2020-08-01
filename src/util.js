@@ -1,5 +1,4 @@
 import React from "react";
-import numeral from "numeral";
 import { Circle, Popup } from "react-leaflet";
 
 const casesTypeColors = {
@@ -29,8 +28,8 @@ export const sortData = (data) => {
   return sortedData.sort((a, b) => (a.cases > b.cases ? -1 : 1));
 };
 
-export const prettyPrintStat = stat => new Intl.NumberFormat("pt-BR").format(stat)
-
+export const prettyPrintStat = (stat) =>
+  stat ? stat.toLocaleString("pt-BR", { style: "decimal" }) : stat;
 
 //draw circles
 export const showDataOnMap = (data, casesType = "cases") =>
@@ -52,13 +51,13 @@ export const showDataOnMap = (data, casesType = "cases") =>
           />
           <div className="info-name">{country.country}</div>
           <div className="info-confirmed">
-            Cases: {numeral(country.cases).format("0.0")}
+            Casos: {prettyPrintStat(country.cases)}
           </div>
           <div className="info-recovered">
-            Recovered: {numeral(country.recovered).format("0.0")}
+            Recuperados: {prettyPrintStat(country.recovered)}
           </div>
           <div className="info-deaths">
-            Deaths: {numeral(country.deaths).format("0.0")}
+            Mortos: {prettyPrintStat(country.deaths)}
           </div>
         </div>
       </Popup>
